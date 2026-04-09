@@ -54,7 +54,12 @@ with col2:
         with st.spinner("Analyzing the materials..."):
             # Prepare the image for the AI
             img = image.resize((224, 224))
-            img_array = np.array(img) / 255.0
+            
+            # --- THE NEW MATH FIX ---
+            img_array = np.array(img, dtype=np.float32)
+            img_array = (img_array / 127.5) - 1.0
+            # ------------------------
+            
             img_array = np.expand_dims(img_array, axis=0)
             
             # Make the prediction
