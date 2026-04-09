@@ -12,7 +12,7 @@ st.write("Upload an image of waste, and the AI will tell you how to dispose of i
 @st.cache_resource
 def load_model():
     # Make sure this perfectly matches the name of your model file!
-    return tf.keras.models.load_model("trash_model_v3.keras")
+    return tf.keras.models.load_model("trash_model_v3.h5")
 
 try:
     model = load_model()
